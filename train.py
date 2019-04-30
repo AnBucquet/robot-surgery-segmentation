@@ -132,7 +132,7 @@ def main():
     valid_loader = make_loader(val_file_names, transform=val_transform(p=1), problem_type=args.type,
                                batch_size=len(device_ids))
 
-    root.joinpath('params.json').write_text(
+    root.joinpath('params_{}.json'.format(args.fold)).write_text(
         json.dumps(vars(args), indent=True, sort_keys=True))
 
     if args.type == 'binary':
